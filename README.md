@@ -1,1 +1,2 @@
-RealWorldUnitTest
+This project developed just for demonstration unit test examples.
+Because of that Database connection is DB First.                                                                                                                                                                                                            
