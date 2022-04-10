@@ -410,4 +410,5 @@ builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>)); //bunu 
     }
 }
 ////; 
-DI yapıldıktan sonraki hali;
+//Test projesinin komut satırında çalıştırılması;
+ilgili test class librarisine cmd ekranlarında locate olunduktan sonra 'dotnet test' komutunu yazmamız yeterlidir.

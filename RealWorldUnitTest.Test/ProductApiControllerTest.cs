@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Moq;
 using RealWorldUnitTest.Web.Controllers;
+using RealWorldUnitTest.Web.Helpers;
 using RealWorldUnitTest.Web.Models;
 using RealWorldUnitTest.Web.Repository;
 using System;
@@ -17,6 +18,8 @@ namespace RealWorldUnitTest.Test
         private readonly Mock<IRepository<Product>> _mockRepo;
         private readonly ProductsApiController _productApiController;
         private List<Product> _products;
+        //Business codes test example;
+        private readonly Helper _helper;
         public ProductApiControllerTest()
         {
             _mockRepo = new Mock<IRepository<Product>>();
@@ -25,6 +28,7 @@ namespace RealWorldUnitTest.Test
                 new Product { Id = 2, Name = "Defter", Price = 200, Stock = 2000, Color = "Mavi" }
             };
             _productApiController = new ProductsApiController(_mockRepo.Object);
+            _helper = new Helper();
         }
         [Fact]
         public async void test_getProduct_actionExecutes_returnOkResultWithProducts()
@@ -108,6 +112,13 @@ namespace RealWorldUnitTest.Test
             var result = await _productApiController.DeleteProduct(productId);
             var returnStatus = Assert.IsType<NoContentResult>(result.Result);
             _mockRepo.Verify(repo=>repo.Delete(product),Times.Once);
+        }
+        [Theory]
+        [InlineData(4,5,9)]
+        public void test_add_sampleData_returnTotal(int a, int b,int total)
+        {
+            var result = _helper.add(a, b);
+            Assert.Equal(total, result);
         }
     }
 }

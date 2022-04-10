@@ -23,6 +23,15 @@ namespace RealWorldUnitTest.Web.Controllers
             _repository = repository;
         }
 
+        [HttpGet("{a}/{b}")]
+        public IActionResult Add(int a ,int b)
+        {
+            var result = new Helpers.Helper().add(a, b);
+            return Ok(result);
+        }
+
+
+
         // GET: api/ProductsApi
         [HttpGet]
         public async Task<IActionResult> GetProduct()
