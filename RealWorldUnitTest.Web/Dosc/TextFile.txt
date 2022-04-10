@@ -302,3 +302,7 @@ builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>)); //bunu 
                 return true;
         }
     }
+
+    //Daha sonra solution a test projesi ekleyip test kodlarımızı yzmaya başlıyoruz.
+    //test projesine web projesini ekliyoruz
+    //test projesine moq framework ünü indiriyoruz.

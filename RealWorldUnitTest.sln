@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32328.378
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealWorldUnitTest.Web", "RealWorldUnitTest.Web\RealWorldUnitTest.Web.csproj", "{264D5A74-6486-4439-9D3C-AE7486C70450}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RealWorldUnitTest.Web", "RealWorldUnitTest.Web\RealWorldUnitTest.Web.csproj", "{264D5A74-6486-4439-9D3C-AE7486C70450}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealWorldUnitTest.Test", "RealWorldUnitTest.Test\RealWorldUnitTest.Test.csproj", "{DC83849B-1A45-4317-B6F2-2114C60B3837}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{264D5A74-6486-4439-9D3C-AE7486C70450}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{264D5A74-6486-4439-9D3C-AE7486C70450}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{264D5A74-6486-4439-9D3C-AE7486C70450}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC83849B-1A45-4317-B6F2-2114C60B3837}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC83849B-1A45-4317-B6F2-2114C60B3837}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC83849B-1A45-4317-B6F2-2114C60B3837}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC83849B-1A45-4317-B6F2-2114C60B3837}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
