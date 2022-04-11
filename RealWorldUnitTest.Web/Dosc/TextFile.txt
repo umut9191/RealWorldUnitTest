@@ -412,3 +412,7 @@ builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>)); //bunu 
 ////; 
 //Test projesinin komut satırında çalıştırılması;
 ilgili test class librarisine cmd ekranlarında locate olunduktan sonra 'dotnet test' komutunu yazmamız yeterlidir.
+
+//Bölüm 9: Database providers karşı EF core kodumuzu ve projemizi test etme konusuna girmeden önce;
+// her bir class library sağ tık>properties> ve .net versiyonu yükseltildi.
+//Daha sonra mnp her bir class library için update kısmındaki bütün paketler seçilip update edildi.
