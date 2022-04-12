@@ -17,6 +17,8 @@ namespace RealWorldUnitTest.Web.Models
         }
 
         public virtual DbSet<Product> Products { get; set; } = null!;
+
+        public virtual DbSet<Category> Categories { get; set; } = null!;
         //Bu burada olmayacak AppSettings e taşıyacağız
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         //{
@@ -38,7 +40,8 @@ namespace RealWorldUnitTest.Web.Models
 
                 entity.Property(e => e.Price).HasColumnType("decimal(18, 2)");
             });
-
+            modelBuilder.Entity<Category>().HasData(
+                new Category { Id= 1,Name="Kalemler"},new Category { Id=2,Name="Defterler"});
             OnModelCreatingPartial(modelBuilder);
         }
 

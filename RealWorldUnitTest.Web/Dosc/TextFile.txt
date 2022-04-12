@@ -416,3 +416,47 @@ ilgili test class librarisine cmd ekranlarında locate olunduktan sonra 'dotnet 
 //Bölüm 9: Database providers karşı EF core kodumuzu ve projemizi test etme konusuna girmeden önce;
 // her bir class library sağ tık>properties> ve .net versiyonu yükseltildi.
 //Daha sonra mnp her bir class library için update kısmındaki bütün paketler seçilip update edildi.
+---
+database provider test i için ;
+1)git te yeni bir branch oluşturuldu
+2)Models klasörü içerisinde Category isminde bir class oluşturduk.
+    public class Category
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public ICollection<Product> products { get; set; }
+    }
+3) Product model ine bir de Category tipinde product un bağlı olduğu kategoriyi temsil eden
+property eklendi. Ve Bir adet ForingKey eklendi CategoryId adında;
+        public int CategoryId { get; set; }
+        public Category Category { get; set; }
+
+        Not: ForingKey CategoryId adında olduğu için yani custom başka bir isimde olmadığı için
+        ForingKey attributesini yazmamıza gerek kalmadan EF onu algılıyor.
+
+4) UnitTestContext class ı içerisinde OnModelCreating methodu içerisinde migration
+yapılınca oluşacak category tablosu içerisine bir kaç kategori eklenecek.;
+
+
+ modelBuilder.Entity<Category>().HasData(
+                new Category { Id= 1,Name="Kalemler"},new Category { Id=2,Name="Defterler"});
+                ve dbSet i de eklendi;
+
+
+5) yeni bir db oluşturdum sql de ve ismi UnitTest2 yapıldı. Ve Packaga Manager Console da;
+add-migration initial
+ve
+update-database
+
+db güncellendi.
+
+6) product ve productApi Controller lar ve test classları kırıldıkları için bu branch tan silindiler
+va ProductController ı with views , entities le birlikte oluşturuyoruz.
+
+7) Proje çalışınca product eklerken product a categori eklerken categori nin ıd leri geldiği için ;
+ProductsController da ;
+ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "Id", product.CategoryId);
+yerine ;
+ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "Name", product.CategoryId);
+yapıldı.
+
